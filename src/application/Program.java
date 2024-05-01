@@ -4,6 +4,7 @@ import java.util.List;
 
 import model.dao.DaoFactory;
 import model.dao.SellerDAO;
+import model.dao.JDBC.SellerDaoJDBC;
 import model.entities.Departament;
 import model.entities.Seller;
 
@@ -17,12 +18,19 @@ public class Program {
 		Seller seller = sellerDAO.findById(3);		
 		System.out.println(seller);
 		
-		System.out.println("/n=== TEST 2: seller findbtId ===");
+		System.out.println("/n === TEST 2: seller findbtId ===");
 		Departament departament = new Departament(2, null);
 		List<Seller> lista = sellerDAO.findByDepartament(departament);
 		for(Seller obj: lista) {
 			System.out.println(obj);
 		}
+		
+		System.out.println("/n === TEST 3: seller findAll ===");
+		List<Seller> listaSeller = sellerDAO.findAll();
+		for(Seller obj: listaSeller) {
+			System.out.println(obj);
+		}
+		
 	}
 
 }
